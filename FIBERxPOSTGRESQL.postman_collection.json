@@ -1,0 +1,1287 @@
+{
+	"info": {
+		"_postman_id": "9d31a36e-677a-46fc-94b6-4d864bc767d0",
+		"name": "NEST/FIBERxPOSTGRESQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24282390"
+	},
+	"item": [
+		{
+			"name": "BOOKS",
+			"item": [
+				{
+					"name": "GET BOOKS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/books",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL}}:{{PORT}}/api/books",
+									"host": [
+										"{{LOCAL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1306"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51a-uCUsOJvkD+9MVkMM4MTlnU04W3g\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Apr 2023 09:21:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"4\",\n            \"bookNameTh\": \"โตเกียว รีเวนเจอร์ เล่มที่ 31\",\n            \"bookNameEn\": \"Tokyo revengers 31\",\n            \"imageUrl\": \"https://cdn-local.mebmarket.com/meb/server1/237526/Thumbnail/book_detail_large.gif?2\",\n            \"price\": 130,\n            \"author\": \"Ken Wakui\",\n            \"publisher\": \"vibulkij\",\n            \"createdAt\": \"2023-04-29T07:22:42.000Z\",\n            \"updatedAt\": \"2023-04-29T07:22:42.000Z\",\n            \"isActive\": true\n        },\n        {\n            \"id\": \"5\",\n            \"bookNameTh\": \"โตเกียว รีเวนเจอร์ เล่มที่ 30\",\n            \"bookNameEn\": \"Tokyo revengers 30\",\n            \"imageUrl\": \"https://inwfile.com/s-di/mkw4k9.jpg\",\n            \"price\": 130,\n            \"author\": \"Ken Wakui\",\n            \"publisher\": \"vibulkij\",\n            \"createdAt\": \"2023-04-29T07:22:42.000Z\",\n            \"updatedAt\": \"2023-04-29T07:22:42.000Z\",\n            \"isActive\": true\n        },\n        {\n            \"id\": \"6\",\n            \"bookNameTh\": \"เกิดใหม่ทั้งทีก็เป็นสไลม์ไปซะแล้ว เล่มที่ 20\",\n            \"bookNameEn\": \"Regarding Reincarnated to Slime 20\",\n            \"imageUrl\": \"https://static.wikia.nocookie.net/tensei-shitara-slime-datta-ken/images/8/8a/Manga_Volume_20_JP.jpg/revision/latest?cb=20220219093733\",\n            \"price\": 95,\n            \"author\": \"Fuse\",\n            \"publisher\": \"รักพิมพ์ พับลิชชิ่ง\",\n            \"createdAt\": \"2023-04-29T07:22:42.000Z\",\n            \"updatedAt\": \"2023-04-29T07:22:42.000Z\",\n            \"isActive\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "GET BOOK BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/book/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL}}:{{PORT}}/api/books/:id",
+									"host": [
+										"{{LOCAL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "438"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b6-Sqo45fqsWBzOc2QXwYQDkntPScU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 30 Apr 2023 06:26:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": [\n        \"successfully\"\n    ],\n    \"data\": {\n        \"id\": \"4\",\n        \"bookNameTh\": \"โตเกียว รีเวนเจอร์ เล่มที่ 31\",\n        \"bookNameEn\": \"Tokyo revengers 31\",\n        \"imageUrl\": \"https://cdn-local.mebmarket.com/meb/server1/237526/Thumbnail/book_detail_large.gif?2\",\n        \"price\": 130,\n        \"author\": \"Ken Wakui\",\n        \"publisher\": \"vibulkij\",\n        \"createdAt\": \"2023-04-29T07:22:42.000Z\",\n        \"updatedAt\": \"2023-04-29T07:22:42.000Z\",\n        \"isActive\": true\n    }\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/book/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"book",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 21 May 2023 04:55:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"errors\": \"Book not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD BOOK",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"book_name_th\" : \"โตเกียว รีเวนเจอร์ เล่มที่ 30\",\n    \"book_name_en\" : \"Tokyo revengers 30\",\n    \"price\" : 130,\n    \"image_url\" : \"https://storage.naiin.com/system/application/bookstore/resource/product/202304/577198/6000073679_front_XXL.jpg?imgname=%E0%B9%82%E0%B8%95%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B8%A2%E0%B8%A7-%E0%B8%A3%E0%B8%B5%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B9%80%E0%B8%88%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%AA-Tokyo-Revengers-%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1-31-(%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1%E0%B8%88%E0%B8%9A)\",\n    \"author\" : \"Ken Wakui\",\n    \"publisher\" : \"vibulkij\",\n    \"book_code\" : \"TR00030\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/book",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"book_name_th\" : \"โตเกียว รีเวนเจอร์ เล่มที่ 29\",\n    \"book_name_en\" : \"Tokyo revengers 29\",\n    \"price\" : 130,\n    \"image_url\" : \"https://cdn-shop.ookbee.com/Books/VIBULKIJCOMIC/2023/20230220105735204228/Thumbnails/Cover.jpg\",\n    \"author\" : \"Ken Wakui\",\n    \"publisher\" : \"vibulkij\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL}}:{{PORT}}/api/books",
+									"host": [
+										"{{LOCAL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-Hr9D3ZAUDgITYsAyVgdoejCGASE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Apr 2023 13:46:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": [\n        \"Save book data successfully\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE BOOK",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"book_name_th\" : \"โตเกียว รีเวนเจอร์ เล่มที่ 30\",\n    \"book_name_en\" : \"Tokyo revengers 30\",\n    \"price\" : 130,\n    \"image_url\" : \"https://cdn-shop.ookbee.com/Books/VIBULKIJCOMIC/2023/20230317074620205194/Thumbnails/Cover.jpg\",\n    \"author\" : \"Ken Wakui\",\n    \"publisher\" : \"vibulkij\",\n    \"book_code\" : \"TR00030\",\n    \"is_active\" : false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/book/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE BOOK",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/book/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ACCESS_TOKEN\", jsonData.data.session_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"systemadmin\",\n    \"password\" : \"sherlock@postgres\",\n    \"source\" : \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\" : \"systemadmin\",\n    \"password\" : \"sherlock@postgres\",\n    \"source\" : \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 13 May 2023 06:43:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "356"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"systemadmin\",\n        \"full_name\": \"Nattapon\",\n        \"role\": \"systemadmin\",\n        \"session_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQwNDY2MjQsImZ1bGxfbmFtZSI6Ik5hdHRhcG9uIiwiaWQiOjEsInJvbGUiOiJzeXN0ZW1hZG1pbiIsInVzZXJuYW1lIjoic3lzdGVtYWRtaW4ifQ.TK2RP6NapArRK1JNlVcp-y9FjUW6cFO96kWoNR17eBQ\"\n    },\n    \"message\": \"Sign In successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "LOGOUIT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"ACCESS_TOKEN\", \"\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"source\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"source\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/auth/logout",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 13 May 2023 06:44:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"SignOut successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ADMINS",
+			"item": [
+				{
+					"name": "CREATE ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"admin@postgres\",\n    \"role\" : \"admin\",\n    \"full_name\" : \"Chotika\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/admin",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"admin@postgres\",\n    \"role\" : \"admin\",\n    \"full_name\" : \"Chotika\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/admin",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 13 May 2023 14:38:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Created admin successfully\"\n}"
+						},
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"admin@postgres\",\n    \"role\" : \"admin\",\n    \"full_name\" : \"Chotika\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/admin",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"admin"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 13 May 2023 14:41:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 409,\n    \"errors\": \"Username already exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET ADMINS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/admins",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"admins"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/admins",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"admins"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 21 May 2023 04:47:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "980"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 11,\n            \"username\": \"superadmin\",\n            \"password\": \"xxxxxx\",\n            \"full_name\": \"Chawisa\",\n            \"role\": \"superadmin\",\n            \"session_token\": \"\",\n            \"created_by\": \"systemadmin\",\n            \"created_at\": \"0001-01-01T00:00:00Z\",\n            \"updated_at\": \"0001-01-01T00:00:00Z\",\n            \"is_active\": true\n        },\n        {\n            \"id\": 1,\n            \"username\": \"systemadmin\",\n            \"password\": \"xxxxxx\",\n            \"full_name\": \"Nattapon\",\n            \"role\": \"systemadmin\",\n            \"session_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ2NTcyMzQsImZ1bGxfbmFtZSI6Ik5hdHRhcG9uIiwiaWQiOjEsInJvbGUiOiJzeXN0ZW1hZG1pbiIsInVzZXJuYW1lIjoic3lzdGVtYWRtaW4ifQ.TuGoc1z_adqJgsFwCRXIuKz8MLK8di7ag3ws6V1j0WA\",\n            \"created_by\": \"systemadmin\",\n            \"created_at\": \"2023-05-05T17:39:23.628+07:00\",\n            \"updated_at\": \"2023-05-08T11:58:56.792+07:00\",\n            \"is_active\": true\n        },\n        {\n            \"id\": 18,\n            \"username\": \"admin\",\n            \"password\": \"xxxxxx\",\n            \"full_name\": \"Chotika\",\n            \"role\": \"admin\",\n            \"session_token\": \"\",\n            \"created_by\": \"systemadmin\",\n            \"created_at\": \"2023-05-13T21:38:25.308081+07:00\",\n            \"updated_at\": \"2023-05-13T21:38:25.308255+07:00\",\n            \"is_active\": true\n        }\n    ],\n    \"message\": \"Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/admin/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"admin",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/admin/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"admin",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 21 May 2023 04:56:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"errors\": \"Admin not found\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/admin/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"admin",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 21 May 2023 04:56:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "502"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"systemadmin\",\n        \"password\": \"xxxxxx\",\n        \"full_name\": \"Nattapon\",\n        \"role\": \"systemadmin\",\n        \"session_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ2NTcyMzQsImZ1bGxfbmFtZSI6Ik5hdHRhcG9uIiwiaWQiOjEsInJvbGUiOiJzeXN0ZW1hZG1pbiIsInVzZXJuYW1lIjoic3lzdGVtYWRtaW4ifQ.TuGoc1z_adqJgsFwCRXIuKz8MLK8di7ag3ws6V1j0WA\",\n        \"created_by\": \"systemadmin\",\n        \"created_at\": \"2023-05-05T17:39:23.628+07:00\",\n        \"updated_at\": \"2023-05-08T11:58:56.792+07:00\",\n        \"is_active\": true\n    },\n    \"message\": \"Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/admin/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"admin",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}:{{PORT}}/api/admin/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"admin",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "18"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 21 May 2023 04:57:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Delete admin successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"test@postgres\",\n    \"role\" : \"admin\",\n    \"full_name\" : \"Chotika\",\n    \"is_active\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/admin/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"admin",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MEMBERS",
+			"item": [
+				{
+					"name": "GET PROFILE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/member",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"member"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MAIN DEBUG REQUEST",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}:{{PORT}}",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "{{PORT}}"
+				}
+			},
+			"response": [
+				{
+					"name": "200 FOR DEBUG",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 13 May 2023 15:02:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "608"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_time\": \"2023-05-13T22:02:59.561309+07:00\",\n    \"headers\": {\n        \"Accept\": \"*/*\",\n        \"Accept-Encoding\": \"gzip, deflate, br\",\n        \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQwNzU2NDQsImZ1bGxfbmFtZSI6Ik5hdHRhcG9uIiwiaWQiOjEsInJvbGUiOiJzeXN0ZW1hZG1pbiIsInVzZXJuYW1lIjoic3lzdGVtYWRtaW4ifQ.ZwtwsNcGQsyNWmULWnvevCGWdc4oAqCmQmb7_h_1D2M\",\n        \"Cache-Control\": \"no-cache\",\n        \"Connection\": \"keep-alive\",\n        \"Host\": \"127.0.0.1:8080\",\n        \"Postman-Token\": \"9256c79c-abe3-44c1-9b54-17397f1f52bf\",\n        \"User-Agent\": \"PostmanRuntime/7.32.2\"\n    },\n    \"hostname\": \"127.0.0.1:8080\",\n    \"protocol\": \"http\",\n    \"request_ip\": \"127.0.0.1\",\n    \"request_proxy\": []\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://127.0.0.1",
+			"type": "string"
+		},
+		{
+			"key": "PORT",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "ACCESS_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ1c2VybmFtZSI6InN5c3RlbWFkbWluIiwicm9sZSI6InN5c3RlbWFkbWluIiwiaWF0IjoxNjgyOTI3MDA1LCJleHAiOjE2ODMwMTM0MDV9.fjKbX7D0Y2Inlv5EwxLomJGblKAhX34WhFW66KqTy5Y",
+			"type": "string"
+		}
+	]
+}
