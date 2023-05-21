@@ -27,6 +27,11 @@ func IndexRoute(app *fiber.App) {
 	common.Use(middleware.SessionMiddleware)
 	BookRoutes(common)
 	AdminRoutes(common)
+	MemberRoutes(common)
+}
+
+func MemberRoutes(router fiber.Router) {
+	router.Get("/member", controllers.GetMemberProfile)
 }
 
 func AdminRoutes(router fiber.Router) {

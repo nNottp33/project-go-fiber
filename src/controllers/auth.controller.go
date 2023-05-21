@@ -57,7 +57,7 @@ func SignIn(c *fiber.Ctx) error {
 
 	table := getModel(body.Source)
 	if checkUser := db.Table(table).Where("username = ?", body.Username).First(&profile); checkUser.Error != nil {
-		fmt.Println("[ERROR] SignIn checkUser CATCH:", checkUser)
+		fmt.Println("[ERROR] SignIn checkUser CATCH:", checkUser.Error)
 		return c.Status(fiber.StatusUnprocessableEntity).JSON(fiber.Map{
 			"code":   fiber.StatusUnprocessableEntity,
 			"errors": "User not found",
@@ -154,7 +154,7 @@ func getModel(source string) string {
 func updateToken(table string, profile Profile) (bool, *gorm.DB) {
 	errUpdateToken := db.Table(table).Where("id = ?", profile.Id).Update("session_token", profile.SessionToken)
 	if errUpdateToken.Error != nil {
-		fmt.Println("[ERROR] SignIn errUpdateToken CATCH:", errUpdateToken)
+		fmt.Println("[ERROR] SignIn errUpdateToken CATCH:", errUpdateToken.Error)
 		return false, errUpdateToken
 	}
 

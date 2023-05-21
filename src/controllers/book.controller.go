@@ -41,8 +41,8 @@ type (
 
 func GetBooks(c *fiber.Ctx) error {
 	var books []models.Book
-	if result := db.Find(&books).Order("updated_at DESC"); result.Error != nil {
-		fmt.Println("[ERROR] GetBooks Exec query CATCH:", result)
+	if result := db.Find(&books).Order("updated_at DESC, id DESC"); result.Error != nil {
+		fmt.Println("[ERROR] GetBooks Exec query CATCH:", result.Error)
 		return c.Status(fiber.StatusUnprocessableEntity).JSON(fiber.Map{
 			"code":   fiber.StatusUnprocessableEntity,
 			"errors": result,
@@ -121,7 +121,6 @@ func NewBook(c *fiber.Ctx) error {
 	book.CreatedBy = "systemadmin"
 	book.UpdatedBy = "systemadmin"
 	book.CreatedAt = time.Now()
-
 	result := db.Clauses(clause.OnConflict{
 		// conflict column
 		Columns: []clause.Column{{Name: "book_code"}},

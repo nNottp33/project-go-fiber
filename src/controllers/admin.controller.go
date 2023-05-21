@@ -36,6 +36,7 @@ type (
 func GetAdmins(c *fiber.Ctx) error {
 	var admin []models.AdminUsers
 	if exec := db.Find(&admin).Order("updated_at DESC"); exec.Error != nil {
+		fmt.Println("[ERROR] GetAdmins CATCH:", exec.Error)
 		return c.Status(fiber.StatusUnprocessableEntity).JSON(fiber.Map{
 			"code":   fiber.StatusUnprocessableEntity,
 			"errors": exec.Error.Error(),
@@ -67,7 +68,7 @@ func GetAdminById(c *fiber.Ctx) error {
 	exec := db.Where("id = ?", id).Last(&admin)
 	admin.Password = "xxxxxx"
 	if exec.Error != nil {
-		fmt.Println("[ERROR] GetAdminById CATCH:", exec)
+		fmt.Println("[ERROR] GetAdminById CATCH:", exec.Error)
 		if errors.Is(exec.Error, gorm.ErrRecordNotFound) {
 			return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
 				"code":   fiber.StatusNotFound,
@@ -128,17 +129,17 @@ func CreateAdmin(c *fiber.Ctx) error {
 	adminUsers.Password = string(salt)
 	adminUsers.CreatedBy = session.Username
 	adminUsers.CreatedAt = time.Now()
-	result := db.Clauses(clause.OnConflict{
+	exec := db.Clauses(clause.OnConflict{
 		Columns: []clause.Column{{Name: "username"}}, DoNothing: true}).Create(&adminUsers)
-	if result.Error != nil {
-		fmt.Println("[ERROR] CreateAdmin Exec query CATCH:", result.Error)
+	if exec.Error != nil {
+		fmt.Println("[ERROR] CreateAdmin Exec query CATCH:", exec.Error)
 		return c.Status(fiber.StatusUnprocessableEntity).JSON(fiber.Map{
 			"code":   fiber.StatusUnprocessableEntity,
-			"errors": result.Error,
+			"errors": exec.Error,
 		})
 	}
 
-	if result.RowsAffected == 0 {
+	if exec.RowsAffected == 0 {
 		return c.Status(fiber.StatusConflict).JSON(fiber.Map{
 			"code":   fiber.StatusConflict,
 			"errors": "Username already exists",
