@@ -23,8 +23,8 @@ func AuthenticationMiddleware(c *fiber.Ctx) error {
 	if errCheckHeaders != nil {
 		fmt.Println("[ERROR] AuthenticationMiddleware checkHeaders CATCH:", errCheckHeaders)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-			"code":  fiber.StatusUnauthorized,
-			"error": errCheckHeaders.Error(),
+			"code":   fiber.StatusUnauthorized,
+			"errors": errCheckHeaders.Error(),
 		})
 	}
 
@@ -39,8 +39,8 @@ func AuthenticationMiddleware(c *fiber.Ctx) error {
 	if err != nil {
 		fmt.Println("[ERROR] AuthenticationMiddleware Verify token CATCH:", token)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-			"code":  fiber.StatusUnauthorized,
-			"error": []string{"Unauthorized", err.Error()},
+			"code":   fiber.StatusUnauthorized,
+			"errors": []string{"Unauthorized", err.Error()},
 		})
 	}
 
@@ -48,8 +48,8 @@ func AuthenticationMiddleware(c *fiber.Ctx) error {
 	if !ok {
 		fmt.Println("[ERROR] AuthenticationMiddleware claims CATCH:", ok)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-			"code":  fiber.StatusUnauthorized,
-			"error": "Unauthorized",
+			"code":   fiber.StatusUnauthorized,
+			"errors": "Unauthorized",
 		})
 	}
 
@@ -67,8 +67,8 @@ func SessionMiddleware(c *fiber.Ctx) error {
 	if err != nil {
 		fmt.Println("[ERROR] SessionMiddleware checkHeaders CATCH:", err)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-			"code":  fiber.StatusUnauthorized,
-			"error": err.Error(),
+			"code":   fiber.StatusUnauthorized,
+			"errors": err.Error(),
 		})
 	}
 
@@ -83,8 +83,8 @@ func SessionMiddleware(c *fiber.Ctx) error {
 	if errors.Error != nil || isExists == 0 {
 		fmt.Println("[ERROR] SessionMiddleware check token CATCH:", errors.Error, "isExists:", isExists)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-			"code":  fiber.StatusUnauthorized,
-			"error": "Session expired!",
+			"code":   fiber.StatusUnauthorized,
+			"errors": "Session expired!",
 		})
 	}
 

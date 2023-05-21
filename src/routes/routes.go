@@ -30,19 +30,19 @@ func IndexRoute(app *fiber.App) {
 }
 
 func AdminRoutes(router fiber.Router) {
-	// router.Get("/admins", controllers.GetAdmins)
-	// router.Get("/admin/detail/:id", controllers.GetAdminById)
+	router.Get("/admins", controllers.GetAdmins)
+	router.Get("/admin/:id", controllers.GetAdminById)
 	router.Post("/admin", controllers.CreateAdmin)
-	// router.Put("/admin", controllers.EditAdmin)
-	// router.Delete("/admin/:id", controllers.DeleteAdmin)
+	router.Put("/admin/:id", controllers.EditAdmin)
+	router.Delete("/admin/:id", controllers.DeleteAdmin)
 }
 
 func BookRoutes(router fiber.Router) {
 	router.Get("/books", controllers.GetBooks)
 	router.Get("/book/:id", controllers.GetBookById)
 	router.Post("/book", controllers.NewBook)
-	// router.Put("/book", controllers.EditBook)
-	// router.Delete("/book/:id", controllers.DeleteBook)
+	router.Put("/book/:id", controllers.EditBook)
+	router.Delete("/book/:id", controllers.DeleteBook)
 }
 
 func AuthRoutes(router fiber.Router) {
