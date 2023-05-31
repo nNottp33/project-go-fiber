@@ -33,7 +33,7 @@ func AuthenticationMiddleware(c *fiber.Ctx) error {
 			return nil, fmt.Errorf("unexpected signing method: %v", t.Header["alg"])
 		}
 
-		return []byte(configs.JWT_SECRET), nil
+		return []byte(configs.JwtSecret), nil
 	})
 
 	if err != nil {
@@ -79,9 +79,9 @@ func SessionMiddleware(c *fiber.Ctx) error {
 	}
 
 	var isExists int64
-	errors := db.Table(table).Where("id = ?", session.Id).Where("session_token = ?", token).Count(&isExists)
-	if errors.Error != nil || isExists == 0 {
-		fmt.Println("[ERROR] SessionMiddleware check token CATCH:", errors.Error, "isExists:", isExists)
+	exec := db.Table(table).Where("id = ?", session.Id).Where("session_token = ?", token).Count(&isExists)
+	if exec.Error != nil || isExists == 0 {
+		fmt.Println("[ERROR] SessionMiddleware check token CATCH:", exec.Error, "isExists:", isExists)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"code":   fiber.StatusUnauthorized,
 			"errors": "Session expired!",

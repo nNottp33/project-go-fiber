@@ -9,15 +9,19 @@ import (
 )
 
 type DatabaseConnection struct {
-	URL          string
+	Host         string
+	Port         int
+	User         string
+	Pass         string
+	Name         string
 	MaxIdleConns int
 	MaxOpenConns int
 }
 
 var (
-	PORT       string
-	JWT_SECRET string
-	Database   DatabaseConnection
+	Port      string
+	JwtSecret string
+	Database  DatabaseConnection
 )
 
 func LoadEnvironment() {
@@ -26,9 +30,19 @@ func LoadEnvironment() {
 		log.Fatal("Error loading .env file")
 	}
 
-	PORT = os.Getenv("PORT")
-	JWT_SECRET = os.Getenv("JWT_SECRET")
-	Database.URL = os.Getenv("DB_URL")
+	Port = os.Getenv("PORT")
+	JwtSecret = os.Getenv("JWT_SECRET")
+	Database.Host = os.Getenv("DB_HOST")
+
+	dbPort, errDbPort := strconv.Atoi(os.Getenv("DB_PORT"))
+	if errDbPort != nil {
+		panic("[ERROR] env 'DB_PORT' invalid or not integer value")
+	}
+
+	Database.Port = dbPort
+	Database.User = os.Getenv("DB_USER")
+	Database.Pass = os.Getenv("DB_PASS")
+	Database.Name = os.Getenv("DB_NAME")
 
 	maxIdleCon, errMaxIdleCon := strconv.Atoi(os.Getenv("DB_MAX_IDLE_CONNECTIONS"))
 	if errMaxIdleCon != nil {

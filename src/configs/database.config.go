@@ -1,6 +1,7 @@
 package configs
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/nNottp33/project-go-fiber/src/models"
@@ -11,12 +12,16 @@ import (
 var Db *gorm.DB
 
 func ConnectDatabase() {
-	db, err := gorm.Open(postgres.Open(Database.URL), &gorm.Config{})
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%d sslmode=disable TimeZone=Asia/Bangkok", Database.Host, Database.User, Database.Pass, Database.Name, Database.Port)
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("[ERROR] Failed to connect to database")
 	}
 
-	db.AutoMigrate(&models.AdminUsers{}, &models.Members{}, &models.Book{})
+	errMigrate := db.AutoMigrate(&models.AdminUsers{}, &models.Members{}, &models.Book{})
+	if errMigrate != nil {
+		panic("[ERROR] Can not migrate tables")
+	}
 
 	sqlDB, sqlDBErr := db.DB()
 	if sqlDBErr != nil {

@@ -34,7 +34,7 @@ func main() {
 	// get routes
 	routes.IndexRoute(app)
 
-	err := app.Listen("localhost:" + configs.PORT)
+	err := app.Listen("localhost:" + configs.Port)
 	if err != nil {
 		panic(err)
 	}

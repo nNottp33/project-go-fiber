@@ -82,7 +82,7 @@ func SignIn(c *fiber.Ctx) error {
 		"exp":       time.Now().Add(time.Hour * 24).Unix(),
 	})
 
-	tokenString, errJwt := token.SignedString([]byte(configs.JWT_SECRET))
+	tokenString, errJwt := token.SignedString([]byte(configs.JwtSecret))
 	if errJwt != nil {
 		fmt.Println("[ERROR] SignIn errJwt CATCH:", errJwt)
 		return c.Status(fiber.StatusFailedDependency).JSON(fiber.Map{

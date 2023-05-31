@@ -16,6 +16,7 @@ func IndexRoute(app *fiber.App) {
 			"request_ip":    c.IP(),
 			"request_proxy": c.IPs(),
 			"current_time":  time.Now(),
+			"message":       "Test",
 		})
 	})
 
